@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>todo</title>
+
+	<link rel="icon" href="img/favicon.ico">
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/typography.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+
+<!-- <div class="description">
+	<p>
+		Press 'n' to add a new task.
+		Press 'c' to remove all tasks.
+	</p>
+</div> -->
+
+<div id="add-form">
+	<form action="#">
+		<textarea placeholder="Enter task here..." required id="task"></textarea>
+		<button type="submit">Submit task</button>
+	</form>
+</div>
+
+<ul class="todo">
+	<script id="task-template" type="text/x-handlebars-template">
+		<li>
+			<span>X</span>
+			<div>{{task}}</div>
+		</li>
+	</script>
+</ul>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script> -->
+<script src="js/handlebars.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+	(function() {
+		// $( 'ul.todo' ).sortable();
+		var formContainer = $('#add-form');
+
+		formContainer.find('button[type=submit]').hide();
+
+		todo.init({
+			container: formContainer.siblings('ul.todo'),
+			taskFormContainer: formContainer.children('form'),
+			taskInput: formContainer.find('textarea'),
+			template: formContainer.siblings('.todo').children('#task-template').html()
+		});
+	})();
+</script>
+
+</body>
+</html>
